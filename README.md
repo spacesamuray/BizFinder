@@ -77,8 +77,9 @@ so a note typed while the app restarts isn't lost.
 - **Click a row** for everything about that business, with call, email, website and
   Google Maps buttons and copy buttons. The arrow keys go to the next or previous one.
 - **Your call** (in a business's details): mark how the call went (No answer, Call back,
-  Interested, Client, Not interested, Wrong number), what they said, and how you could do
-  better next time. It saves by itself as you type. Changing the result within 10 minutes
+  Interested, Somewhat interested, Client, Not interested, Wrong number), what they said,
+  and how you could do better next time. **Somewhat interested** means: send them a demo
+  on WhatsApp. It saves by itself as you type. Changing the result within 10 minutes
   corrects it; a later one is logged as another call, so you see every call with its date.
   The table shows these in **Call status**, **Their response** and **How to improve**, and
   the **All calls** menu shows, for example, only businesses you haven't called yet.

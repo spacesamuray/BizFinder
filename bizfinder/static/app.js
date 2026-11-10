@@ -107,9 +107,14 @@ const CALL_STATUSES = {
   'No answer': 'warn',
   'Call back': 'warn',
   Interested: 'good',
+  'Somewhat interested': 'good',
   Client: 'good',
   'Not interested': 'bad',
   'Wrong number': 'bad',
+};
+// What a result means, shown when you point at its button.
+const CALL_HINTS = {
+  'Somewhat interested': 'Send them a demo on WhatsApp',
 };
 const CALL_COLUMNS = ['Call status', 'Their response', 'How to improve', 'Called on'];
 const CALL_FILTERS = [
@@ -1038,7 +1043,7 @@ function renderTiles() {
   ];
   const called = count((r) => r['Call status']);
   if (called) {
-    const keen = count((r) => r['Call status'] === 'Interested' || r['Call status'] === 'Client');
+    const keen = count((r) => ['Interested', 'Somewhat interested', 'Client'].includes(r['Call status']));
     tiles.push(`<div class="tile"><span class="tile-label">Called</span><span class="tile-value">${fmt.format(called)}</span><span class="tile-sub">${fmt.format(keen)} interested or clients</span></div>`);
   }
   if (avg != null) {
@@ -1577,7 +1582,7 @@ function callFormHtml(r) {
   const options = ['', ...Object.keys(CALL_STATUSES)]
     .map(
       (s) =>
-        `<button type="button" class="call-opt ${s ? CALL_STATUSES[s] : ''}" data-status="${esc(s)}" aria-pressed="${(c.status || '') === s}">${s || 'Not called'}</button>`,
+        `<button type="button" class="call-opt ${s ? CALL_STATUSES[s] : ''}" data-status="${esc(s)}" aria-pressed="${(c.status || '') === s}"${CALL_HINTS[s] ? ` title="${esc(CALL_HINTS[s])}"` : ''}>${s || 'Not called'}</button>`,
     )
     .join('');
   return `<section class="section call-box" data-call-key="${esc(callKey(r))}">

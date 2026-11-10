@@ -15,7 +15,7 @@ from datetime import datetime
 from .run import OUTPUT
 
 FILE = OUTPUT / "calls.json"
-STATUSES = ("No answer", "Call back", "Interested", "Client", "Not interested", "Wrong number")
+STATUSES = ("No answer", "Call back", "Interested", "Somewhat interested", "Client", "Not interested", "Wrong number")
 TEXT_FIELDS = ("response", "improve")
 MAX_TEXT = 5000
 SAME_CALL_MINUTES = 10  # a new result within this time corrects the last one instead of logging another call
