@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bizfinder</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6fd0'/%3E%3Ccircle cx='14' cy='14' r='6.5' fill='none' stroke='white' stroke-width='3'/%3E%3Cpath d='M19 19l6 6' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/static/vendor/leaflet.css" />
+    <link rel="stylesheet" href="/static/app.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="side" aria-label="Searches">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32"><circle cx="14" cy="14" r="6.5" /><path d="M19 19l6 6" /></svg>
+          </span>
+          <span class="brand-name">Bizfinder</span>
+        </div>
+
+        <a class="btn btn-primary side-new" href="#new">
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+          New search
+        </a>
+
+        <a class="side-job" href="#job" hidden></a>
+
+        <div class="side-head">
+          <h2>Saved searches</h2>
+          <span class="side-count"></span>
+        </div>
+        <input class="side-filter" type="search" placeholder="Filter…" aria-label="Filter saved searches" hidden />
+        <nav class="saved" aria-label="Saved searches"></nav>
+
+        <div class="usage" aria-label="API requests used today"></div>
+      </aside>
+
+      <main class="main" id="main" tabindex="-1"></main>
+    </div>
+
+    <aside class="drawer" aria-label="Business details" hidden></aside>
+    <div class="banner" role="status" hidden></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script src="/static/vendor/leaflet.js"></script>
+    <script src="/static/app.js" type="module"></script>
+  </body>
+</html>
