@@ -1,0 +1,9 @@
+#!/bin/sh
+# Runs bizfinder with the project's own Python, from any folder.
+# Linked into ~/.local/bin, so typing `bizfinder` anywhere works (see README.md).
+here="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+if [ ! -x "$here/.venv/bin/python" ]; then
+  echo "bizfinder isn't installed yet. See \"Setup\" in $here/README.md" >&2
+  exit 1
+fi
+PYTHONPATH="$here${PYTHONPATH:+:$PYTHONPATH}" exec "$here/.venv/bin/python" -m bizfinder "$@"
