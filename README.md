@@ -1,4 +1,7 @@
-<img src="brand/bizfinder-logo.svg" alt="bizfinder" width="180">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="brand/bizfinder-logo-dark.svg">
+  <img src="brand/bizfinder-logo.svg" alt="bizfinder" width="180">
+</picture>
 
 # Business finder
 
@@ -39,20 +42,24 @@ you add `--source tomtom`.
 **2. Install**
 
 ```bash
-cd ~/projects/personal/bussines/analytics
+git clone git@github.com:spacesamuray/BizFinder.git
+cd BizFinder
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env      # then open .env and paste your key(s)
 ```
 
-**3. Make the `bizfinder` command** (so it works from any folder, no `source` needed)
+**3. Make the `bizfinder` command** (so it works from any folder, no `source` needed).
+In the project folder:
 
 ```bash
-ln -s ~/projects/personal/bussines/analytics/bin/bizfinder ~/.local/bin/bizfinder
+mkdir -p ~/.local/bin
+ln -s "$PWD/bin/bizfinder" ~/.local/bin/bizfinder
 ```
 
-`~/.local/bin` must be on your PATH (it is on this Mac).
+`~/.local/bin` must be on your PATH. If `bizfinder` isn't found, add
+`export PATH="$HOME/.local/bin:$PATH"` to `~/.zshrc` and open a new terminal.
 
 ## Usage
 
