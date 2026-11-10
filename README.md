@@ -1,3 +1,5 @@
+<img src="brand/bizfinder-logo.svg" alt="bizfinder" width="180">
+
 # Business finder
 
 Searches a map service for any kind of business (dentists, flower shops, ...) in a
@@ -98,6 +100,12 @@ that file: it's the only place they're stored. They are in the CSV export but no
 .xlsx download, because re-saving the spreadsheet would lose its charts.
 
 The app only works on this computer: other computers and websites can't reach it.
+
+Its look follows the logo: ink, cream and green, with headings and numbers in Sora. The
+logo files (app icon, favicon, versions for light and dark backgrounds, a social preview)
+are in `brand/`, with the exact colours in `brand/README.txt`. The app uses the favicon
+from `bizfinder/static/brand/` and the Sora font from `bizfinder/static/vendor/sora/`
+(free to use, see its `OFL.txt`), so it needs no internet for them.
 
 ### In the terminal
 

@@ -1,37 +1,55 @@
-/* Bizfinder app. Light and dark follow the computer's setting. */
+/* Bizfinder app. Light and dark follow the computer's setting.
+   Colours and type follow the logo (brand/README.txt): ink #10261F, cream #F4F1EA,
+   green #1FA35C, and Sora for headings and numbers. */
+
+@font-face {
+  font-family: "Sora";
+  src: url("vendor/sora/sora-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+  /* Latin only: Georgian falls back to the system font */
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212;
+}
 
 :root {
-  --bg: #f4f5f7;
-  --panel: #ffffff;
-  --panel-2: #f7f8fa;
-  --panel-3: #eef0f3;
-  --line: #e2e5ea;
-  --line-strong: #cdd2da;
-  --ink: #15171c;
-  --ink-2: #474d59;
-  --ink-3: #757c89;
-  --accent: #2f6fd0;
-  --accent-hover: #255cb0;
-  --accent-ink: #ffffff;
-  --accent-soft: #e9f0fb;
-  --accent-line: #b9cff0;
-  --good-bg: #e2f4e7;
-  --good-ink: #1c6a34;
-  --warn-bg: #fcf0d3;
-  --warn-ink: #855508;
-  --bad-bg: #fde3e2;
+  --bg: #f4f1ea;
+  --panel: #fffdf9;
+  --panel-2: #faf7f1;
+  --panel-3: #efebe2;
+  --line: #e5e0d5;
+  --line-strong: #d2cbbc;
+  --ink: #10261f;
+  --ink-2: #3e5249;
+  --ink-3: #607068;
+  /* Main buttons: the logo's ink tile */
+  --primary: #10261f;
+  --primary-hover: #1e3d33;
+  --primary-ink: #f4f1ea;
+  --brand-tile: #10261f; /* the app icon's tile */
+  /* The logo's green: what's selected, in focus or in progress */
+  --accent: #1fa35c;
+  --accent-text: #137a44; /* the green for text and links, dark enough to read */
+  --accent-soft: #e3f1e7;
+  --accent-line: #b3d9c1;
+  --good-bg: #dff1e5;
+  --good-ink: #17663a;
+  --warn-bg: #fbefcf;
+  --warn-ink: #7f5307;
+  --bad-bg: #fbe2df;
   --bad-ink: #a2251f;
-  --row-alt: #fafbfc;
-  --row-hover: #f1f5fc;
-  --row-selected: #e4edfb;
-  --shadow: 0 1px 2px rgb(16 24 40 / 0.05), 0 1px 3px rgb(16 24 40 / 0.07);
-  --shadow-lg: 0 12px 32px rgb(16 24 40 / 0.16), 0 2px 6px rgb(16 24 40 / 0.08);
+  --row-alt: #fbf9f4;
+  --row-hover: #f2f5ef;
+  --row-selected: #e3f0e6;
+  --shadow: 0 1px 2px rgb(16 38 31 / 0.05), 0 1px 3px rgb(16 38 31 / 0.07);
+  --shadow-lg: 0 12px 32px rgb(16 38 31 / 0.16), 0 2px 6px rgb(16 38 31 / 0.08);
   --radius: 10px;
   --mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Sora", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Georgian", sans-serif;
 
-  /* Map and summary marks: one colour per kind of web presence, labelled in a legend */
-  --m-own: #2f6fd0;
-  --m-broken: #4b5563;
+  /* Map and summary marks: one colour per kind of web presence, labelled in a legend.
+     Green for a working site, then amber, red for none (the best leads). */
+  --m-own: #1fa35c;
+  --m-broken: #5b6b64;
   --m-social: #e3a008;
   --m-none: #d1362f;
 
@@ -42,33 +60,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0e1014;
-    --panel: #161920;
-    --panel-2: #1b1f27;
-    --panel-3: #232833;
-    --line: #2a303b;
-    --line-strong: #3a4250;
-    --ink: #e8eaee;
-    --ink-2: #b4bac5;
-    --ink-3: #858c99;
-    --accent: #5b93ea;
-    --accent-hover: #78a8f0;
-    --accent-ink: #0b1220;
-    --accent-soft: #1b2a42;
-    --accent-line: #2f4a75;
-    --good-bg: #173322;
+    --bg: #0a1813;
+    --panel: #10261f;
+    --panel-2: #132b23;
+    --panel-3: #1a372d;
+    --line: #22413a;
+    --line-strong: #2e5348;
+    --ink: #f4f1ea;
+    --ink-2: #c3ccc5;
+    --ink-3: #8c9d95;
+    /* Main buttons: cream, like the logo on its dark tile */
+    --primary: #f4f1ea;
+    --primary-hover: #ffffff;
+    --primary-ink: #10261f;
+    --brand-tile: #1c3d31; /* a step lighter, so the icon still shows as a tile on the dark panel */
+    --accent: #1fa35c;
+    --accent-text: #5ccf8f;
+    --accent-soft: #15392a;
+    --accent-line: #1f5b3e;
+    --good-bg: #153a28;
     --good-ink: #7fd69a;
     --warn-bg: #3a2c0c;
     --warn-ink: #f0c25e;
     --bad-bg: #401b1a;
     --bad-ink: #ff958f;
-    --row-alt: #181b22;
-    --row-hover: #1d2533;
-    --row-selected: #213150;
+    --row-alt: #122a22;
+    --row-hover: #17332a;
+    --row-selected: #1b4433;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.4);
     --shadow-lg: 0 12px 32px rgb(0 0 0 / 0.55);
-    --m-own: #5b93ea;
-    --m-broken: #9aa3b2;
+    --m-own: #34c274;
+    --m-broken: #9aa8a1;
     --m-social: #f0b429;
     --m-none: #f2615a;
     color-scheme: dark;
@@ -100,7 +122,7 @@ p {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: none;
 }
 
@@ -173,14 +195,14 @@ textarea {
 }
 
 .btn-primary {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--accent-ink);
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-ink);
 }
 
 .btn-primary:hover {
-  border-color: var(--accent-hover);
-  background: var(--accent-hover);
+  border-color: var(--primary-hover);
+  background: var(--primary-hover);
 }
 
 .btn-danger {
@@ -237,27 +259,19 @@ textarea {
 }
 
 .brand-mark {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  background: var(--accent);
+  width: 34px;
+  height: 34px;
+  flex: none;
 }
 
-.brand-mark svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: var(--accent-ink);
-  stroke-width: 3;
-  stroke-linecap: round;
+.brand-mark rect {
+  fill: var(--brand-tile);
 }
 
 .brand-name {
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  height: 21px;
+  width: auto;
+  fill: var(--ink);
 }
 
 .side-new {
@@ -451,6 +465,7 @@ textarea {
 }
 
 .page-head h1 {
+  font-family: var(--display);
   font-size: 26px;
   letter-spacing: -0.02em;
 }
@@ -721,6 +736,7 @@ details.more summary {
 }
 
 .job-top h1 {
+  font-family: var(--display);
   font-size: 22px;
   letter-spacing: -0.01em;
 }
@@ -875,6 +891,7 @@ details.more summary {
 }
 
 .result-head h1 {
+  font-family: var(--display);
   margin-top: 2px;
   font-size: 21px;
   line-height: 1.25;
@@ -949,8 +966,9 @@ details.more summary {
 }
 
 .tile-value {
+  font-family: var(--display);
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 650;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
@@ -1244,7 +1262,7 @@ button.tile.is-on {
 }
 
 .gc.is-edge {
-  box-shadow: 4px 0 6px -4px rgb(16 24 40 / 0.18);
+  box-shadow: 4px 0 6px -4px rgb(16 38 31 / 0.18);
 }
 
 .gc.rn {
@@ -1308,7 +1326,7 @@ button.tile.is-on {
 
 .sort-ind {
   flex: none;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 11px;
 }
 
@@ -1407,7 +1425,7 @@ button.tile.is-on {
 
 .soc:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .stars {
@@ -1512,16 +1530,16 @@ button.tile.is-on {
 
 .pop-meta {
   margin: 2px 0 8px;
-  color: #6b7280;
+  color: #5b6b64;
 }
 
 .pop button {
   margin-top: 8px;
   padding: 4px 10px;
-  border: 1px solid #2f6fd0;
+  border: 1px solid #10261f;
   border-radius: 6px;
-  background: #2f6fd0;
-  color: #fff;
+  background: #10261f;
+  color: #f4f1ea;
   font-weight: 500;
   cursor: pointer;
 }
@@ -1548,6 +1566,7 @@ button.tile.is-on {
 }
 
 .card h3 {
+  font-family: var(--display);
   margin-bottom: 12px;
   font-size: 14px;
 }
@@ -1655,6 +1674,7 @@ button.tile.is-on {
 }
 
 .drawer h2 {
+  font-family: var(--display);
   font-size: 20px;
   line-height: 1.25;
   letter-spacing: -0.01em;
